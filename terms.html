@@ -3,92 +3,286 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Terms of Service for Arrow Puzzle.">
-  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Terms of Service for Arrow Puzzle mobile game.">
+  <meta name="theme-color" content="#11152b">
   <title>Terms of Service | Arrow Puzzle</title>
   <style>
-    :root{color-scheme:light;--bg:#f5f7fb;--card:#fff;--text:#202938;--muted:#667085;--line:#e6eaf0;--accent:#4f46e5}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.75}
-    header{background:#111827;color:#fff;padding:54px 20px;text-align:center}
-    header h1{margin:0;font-size:clamp(30px,5vw,42px);line-height:1.2}
-    header p{margin:12px 0 0;color:#cbd5e1}
-    main{max-width:860px;margin:36px auto;padding:0 18px 56px}
-    article{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(24px,5vw,44px);box-shadow:0 8px 30px rgba(20,25,35,.05)}
-    h2{margin:32px 0 8px;font-size:21px;line-height:1.35;color:#172554}
-    p,li{font-size:15.5px}
-    .meta,.muted{color:var(--muted);font-size:14px}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-    @media(max-width:600px){header{padding:42px 16px}main{margin:18px auto}}
+    :root {
+      color-scheme: light;
+      --ink: #182033;
+      --muted: #667085;
+      --line: #e8eaf2;
+      --paper: #ffffff;
+      --bg: #f5f6fb;
+      --violet: #6857e8;
+      --violet-dark: #5142c7;
+      --soft: #f0eeff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 12% 5%, rgba(126, 107, 255, .12), transparent 34rem),
+        radial-gradient(ellipse at 92% 18%, rgba(73, 154, 255, .10), transparent 30rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 62px 20px 92px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(125deg, #11152b 0%, #22204d 52%, #4236a8 100%);
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before { width: 360px; height: 360px; top: -245px; left: calc(50% - 180px); }
+    .hero::after { width: 520px; height: 520px; bottom: -440px; left: calc(50% - 260px); }
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: auto; }
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 17px;
+      background: rgba(255,255,255,.10);
+      box-shadow: 0 10px 30px rgba(0,0,0,.16);
+      font-size: 25px;
+      font-weight: 800;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #c8c2ff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0; font-size: clamp(34px, 6vw, 48px); line-height: 1.12; letter-spacing: -.04em; }
+    .hero-copy { max-width: 550px; margin: 16px auto 0; color: #d7d8ee; font-size: 15px; }
+    .page-wrap { position: relative; max-width: 980px; margin: -42px auto 0; padding: 0 20px 60px; }
+    .document {
+      position: relative;
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 42px;
+      padding: 38px;
+      border: 1px solid rgba(226,229,239,.9);
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: 0 24px 70px rgba(27, 31, 65, .09);
+    }
+    .sidebar { align-self: start; position: sticky; top: 24px; }
+    .sidebar-label { margin: 0 0 12px; color: #9298a8; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .toc { display: grid; gap: 3px; }
+    .toc a { display: block; padding: 7px 10px; border-radius: 8px; color: #687086; font-size: 12px; line-height: 1.45; text-decoration: none; transition: .18s ease; }
+    .toc a:hover { color: var(--violet-dark); background: var(--soft); }
+    .content { min-width: 0; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 24px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #667085;
+      background: #fbfbfe;
+      font-size: 11px;
+      font-weight: 650;
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #6e5bea; }
+    .intro { margin: 0 0 30px; color: #4c566b; font-size: 15px; }
+    .section { scroll-margin-top: 24px; padding: 23px 0; border-top: 1px solid var(--line); }
+    .section h2 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 10px; color: #202744; font-size: 18px; line-height: 1.4; letter-spacing: -.015em; }
+    .number { color: var(--violet); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+    p, li { color: #586174; font-size: 14px; }
+    p { margin: 9px 0; }
+    ul { margin: 10px 0 4px; padding-left: 21px; }
+    li { padding: 3px 0 3px 3px; }
+    li::marker { color: #8376ec; }
+    a { color: var(--violet-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .contact-panel {
+      margin-top: 12px;
+      padding: 17px 19px;
+      border: 1px solid #e6e1ff;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #f8f7ff, #f2f5ff);
+    }
+    .contact-panel p { margin: 0; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 19px;
+      border-top: 1px solid var(--line);
+      color: #9298a8;
+      font-size: 11px;
+    }
+    @media (max-width: 760px) {
+      .hero { padding: 48px 18px 78px; }
+      .document { grid-template-columns: 1fr; gap: 24px; padding: 27px 23px; }
+      .sidebar { position: static; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+      .toc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .page-wrap { padding-right: 13px; padding-left: 13px; }
+    }
+    @media (max-width: 420px) {
+      .toc { grid-template-columns: 1fr; }
+      .document { padding: 23px 18px; border-radius: 17px; }
+      .footer { flex-direction: column; }
+    }
+    @media print {
+      body { background: #fff; }
+      .hero { padding: 28px 15px; print-color-adjust: exact; }
+      .page-wrap { margin: 0 auto; padding: 15px; }
+      .document { display: block; padding: 0; border: 0; box-shadow: none; }
+      .sidebar { display: none; }
+    }
   </style>
 </head>
 <body>
-<header>
-  <h1>Arrow Puzzle</h1>
-  <p>Terms of Service</p>
-</header>
-<main>
-<article>
-  <p class="meta"><strong>Effective date:</strong> November 12, 2026<br><strong>Last updated:</strong> November 12, 2026</p>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand-mark" aria-hidden="true">➜</div>
+      <p class="eyebrow">Arrow Puzzle · Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="hero-copy">The guidelines and conditions that apply when you play Arrow Puzzle.</p>
+    </div>
+  </header>
 
-  <p>These Terms of Service ("Terms") govern your access to and use of the Arrow Puzzle mobile game (the "Game"). By downloading, installing, or using the Game, you agree to these Terms. If you do not agree, do not use the Game.</p>
+  <main class="page-wrap">
+    <article class="document">
+      <aside class="sidebar" aria-label="Table of contents">
+        <p class="sidebar-label">On this page</p>
+        <nav class="toc">
+          <a href="#about">About the Game</a>
+          <a href="#eligibility">Eligibility</a>
+          <a href="#license">License</a>
+          <a href="#use">Acceptable Use</a>
+          <a href="#property">Intellectual Property</a>
+          <a href="#third-party">Third-Party Services</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#availability">Availability</a>
+          <a href="#warranties">Warranties</a>
+          <a href="#liability">Liability</a>
+          <a href="#termination">Termination</a>
+          <a href="#changes">Changes</a>
+          <a href="#law">Governing Law</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
 
-  <h2>1. About the Game</h2>
-  <p>Arrow Puzzle is a mobile puzzle game provided for entertainment. These Terms apply to all people who download, access, or use the Game.</p>
+      <div class="content">
+        <div class="meta-row">
+          <span class="pill"><span class="pill-dot"></span> Effective November 12, 2026</span>
+          <span class="pill">Last updated November 12, 2026</span>
+        </div>
 
-  <h2>2. Eligibility and Minors</h2>
-  <p>You may use the Game only where doing so is permitted by applicable law. If you are a minor, you may use the Game only with any consent or supervision required by the laws that apply to you. Parents and guardians are responsible for supervising minors' use where required by law.</p>
+        <p class="intro">These Terms of Service ("Terms") govern your access to and use of the Arrow Puzzle mobile game (the "Game"). By downloading, installing, or using the Game, you agree to these Terms. If you do not agree, do not use the Game.</p>
 
-  <h2>3. License to Use the Game</h2>
-  <p>Subject to your compliance with these Terms, the developer grants you a limited, personal, non-exclusive, non-transferable, revocable license to download and use the Game for your personal, non-commercial entertainment. No other rights are granted to you.</p>
+        <section class="section" id="about">
+          <h2><span class="number">01</span> About the Game</h2>
+          <p>Arrow Puzzle is a mobile puzzle game provided for entertainment. These Terms apply to all people who download, access, or use the Game.</p>
+        </section>
 
-  <h2>4. Acceptable Use</h2>
-  <p>You agree not to, and not to attempt to:</p>
-  <ul>
-    <li>Use the Game for any unlawful purpose or in violation of applicable laws.</li>
-    <li>Cheat, exploit bugs, manipulate scores or gameplay, or use unauthorized bots or tools.</li>
-    <li>Copy, modify, distribute, sell, lease, sublicense, or commercially exploit the Game, except where expressly permitted by law or by the developer in writing.</li>
-    <li>Reverse engineer, decompile, or attempt to derive the source code of the Game, except to the extent that applicable law does not permit this restriction.</li>
-    <li>Interfere with or disrupt the Game, its infrastructure, or other users' enjoyment of it.</li>
-    <li>Remove or alter copyright, trademark, or other proprietary notices.</li>
-  </ul>
+        <section class="section" id="eligibility">
+          <h2><span class="number">02</span> Eligibility and Minors</h2>
+          <p>You may use the Game only where doing so is permitted by applicable law. If you are a minor, you may use the Game only with any consent or supervision required by the laws that apply to you. Parents and guardians are responsible for supervising minors' use where required by law.</p>
+        </section>
 
-  <h2>5. Intellectual Property</h2>
-  <p>The Game, including its software, name, branding, artwork, graphics, interface, audio, text, and other content, is owned by the developer or its licensors and is protected by intellectual-property laws. You obtain no ownership interest in the Game by using it. All rights not expressly granted in these Terms are reserved.</p>
+        <section class="section" id="license">
+          <h2><span class="number">03</span> License to Use the Game</h2>
+          <p>Subject to your compliance with these Terms, the developer grants you a limited, personal, non-exclusive, non-transferable, revocable license to download and use the Game for your personal, non-commercial entertainment. No other rights are granted to you.</p>
+        </section>
 
-  <h2>6. Advertisements and Third-Party Services</h2>
-  <p>The Game may display advertisements or use third-party services, including advertising services such as Google AdMob, platform services, analytics, or crash-reporting tools. These third parties may process information under their own terms and privacy policies. The developer does not control independent third-party services and is not responsible for their content or practices, to the extent permitted by applicable law.</p>
-  <p>Any interaction you have with a third-party service or advertiser is between you and that third party and may be subject to additional terms. The presence of an advertisement does not constitute an endorsement of the advertised product or service.</p>
+        <section class="section" id="use">
+          <h2><span class="number">04</span> Acceptable Use</h2>
+          <p>You agree not to, and not to attempt to:</p>
+          <ul>
+            <li>Use the Game for any unlawful purpose or in violation of applicable laws.</li>
+            <li>Cheat, exploit bugs, manipulate scores or gameplay, or use unauthorized bots or tools.</li>
+            <li>Copy, modify, distribute, sell, lease, sublicense, or commercially exploit the Game, except where expressly permitted by law or by the developer in writing.</li>
+            <li>Reverse engineer, decompile, or attempt to derive the source code of the Game, except to the extent that applicable law does not permit this restriction.</li>
+            <li>Interfere with or disrupt the Game, its infrastructure, or other users' enjoyment of it.</li>
+            <li>Remove or alter copyright, trademark, or other proprietary notices.</li>
+          </ul>
+        </section>
 
-  <h2>7. Privacy</h2>
-  <p>Use of the Game is also subject to the <a href="./index.html">Arrow Puzzle Privacy Policy</a>, which explains how information is handled. Please review it before using the Game. If the Game's data practices change, the Privacy Policy may be updated accordingly.</p>
+        <section class="section" id="property">
+          <h2><span class="number">05</span> Intellectual Property</h2>
+          <p>The Game, including its software, name, branding, artwork, graphics, interface, audio, text, and other content, is owned by the developer or its licensors and is protected by intellectual-property laws. You obtain no ownership interest in the Game by using it. All rights not expressly granted in these Terms are reserved.</p>
+        </section>
 
-  <h2>8. Updates, Availability, and Changes</h2>
-  <p>The developer may release updates, change features, or suspend or discontinue all or part of the Game. The Game may not be available at all times or on all devices. The developer does not guarantee uninterrupted, error-free, or continuous availability.</p>
+        <section class="section" id="third-party">
+          <h2><span class="number">06</span> Advertisements and Third-Party Services</h2>
+          <p>The Game may display advertisements or use third-party services, including advertising services such as Google AdMob, platform services, analytics, or crash-reporting tools. These third parties may process information under their own terms and privacy policies. The developer does not control independent third-party services and is not responsible for their content or practices, to the extent permitted by applicable law.</p>
+          <p>Any interaction you have with a third-party service or advertiser is between you and that third party and may be subject to additional terms. The presence of an advertisement does not constitute an endorsement of the advertised product or service.</p>
+        </section>
 
-  <h2>9. Disclaimer of Warranties</h2>
-  <p>To the maximum extent permitted by applicable law, the Game is provided "as is" and "as available", without warranties of any kind, whether express, implied, or statutory. The developer does not warrant that the Game will be uninterrupted, secure, error-free, or compatible with every device. This section does not limit any warranty or right that cannot lawfully be excluded.</p>
+        <section class="section" id="privacy">
+          <h2><span class="number">07</span> Privacy</h2>
+          <p>Use of the Game is also subject to the <a href="./index.html">Arrow Puzzle Privacy Policy</a>, which explains how information is handled. Please review it before using the Game. If the Game's data practices change, the Privacy Policy may be updated accordingly.</p>
+        </section>
 
-  <h2>10. Limitation of Liability</h2>
-  <p>To the maximum extent permitted by applicable law, the developer will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for loss of data, profits, goodwill, or business opportunities arising out of or related to your use of the Game.</p>
-  <p>Nothing in these Terms excludes or limits liability that cannot be excluded or limited under applicable law, including mandatory consumer-protection rights.</p>
+        <section class="section" id="availability">
+          <h2><span class="number">08</span> Updates and Availability</h2>
+          <p>The developer may release updates, change features, or suspend or discontinue all or part of the Game. The Game may not be available at all times or on all devices. The developer does not guarantee uninterrupted, error-free, or continuous availability.</p>
+        </section>
 
-  <h2>11. Suspension and Termination</h2>
-  <p>You may stop using the Game at any time by uninstalling it. The developer may suspend or restrict access where reasonably necessary to protect the Game, users, or the developer, or where you materially breach these Terms, subject to applicable law.</p>
+        <section class="section" id="warranties">
+          <h2><span class="number">09</span> Disclaimer of Warranties</h2>
+          <p>To the maximum extent permitted by applicable law, the Game is provided "as is" and "as available", without warranties of any kind, whether express, implied, or statutory. The developer does not warrant that the Game will be uninterrupted, secure, error-free, or compatible with every device. This section does not limit any warranty or right that cannot lawfully be excluded.</p>
+        </section>
 
-  <h2>12. Changes to These Terms</h2>
-  <p>These Terms may be revised from time to time. The revised version will be posted on this page with an updated date. Changes take effect when posted unless a later effective date is stated. Where required by law, the developer will provide additional notice or obtain consent.</p>
+        <section class="section" id="liability">
+          <h2><span class="number">10</span> Limitation of Liability</h2>
+          <p>To the maximum extent permitted by applicable law, the developer will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for loss of data, profits, goodwill, or business opportunities arising out of or related to your use of the Game.</p>
+          <p>Nothing in these Terms excludes or limits liability that cannot be excluded or limited under applicable law, including mandatory consumer-protection rights.</p>
+        </section>
 
-  <h2>13. Governing Law and Consumer Rights</h2>
-  <p>These Terms are subject to the laws applicable to the developer, without depriving consumers of any mandatory protections provided by the laws of their country or place of residence. Any dispute will be handled by the competent courts or dispute-resolution bodies as required by applicable law.</p>
+        <section class="section" id="termination">
+          <h2><span class="number">11</span> Suspension and Termination</h2>
+          <p>You may stop using the Game at any time by uninstalling it. The developer may suspend or restrict access where reasonably necessary to protect the Game, users, or the developer, or where you materially breach these Terms, subject to applicable law.</p>
+        </section>
 
-  <h2>14. Contact</h2>
-  <p>For questions or concerns about these Terms, please contact the developer through the <a href="https://github.com/tonarozteam/Arrow-Puzzle">Arrow Puzzle project repository</a>.</p>
+        <section class="section" id="changes">
+          <h2><span class="number">12</span> Changes to These Terms</h2>
+          <p>These Terms may be revised from time to time. The revised version will be posted on this page with an updated date. Changes take effect when posted unless a later effective date is stated. Where required by law, the developer will provide additional notice or obtain consent.</p>
+        </section>
 
-  <div class="footer">© 2026 Arrow Puzzle. All rights reserved.</div>
-</article>
-</main>
+        <section class="section" id="law">
+          <h2><span class="number">13</span> Governing Law and Consumer Rights</h2>
+          <p>These Terms are subject to the laws applicable to the developer, without depriving consumers of any mandatory protections provided by the laws of their country or place of residence. Any dispute will be handled by the competent courts or dispute-resolution bodies as required by applicable law.</p>
+        </section>
+
+        <section class="section" id="contact">
+          <h2><span class="number">14</span> Contact</h2>
+          <p>For questions or concerns about these Terms, please contact the developer through the Arrow Puzzle project repository.</p>
+          <div class="contact-panel">
+            <p><strong>Arrow Puzzle Support</strong><br><a href="https://github.com/tonarozteam/Arrow-Puzzle">github.com/tonarozteam/Arrow-Puzzle</a></p>
+          </div>
+        </section>
+
+        <div class="footer">
+          <span>© 2026 Arrow Puzzle. All rights reserved.</span>
+          <span><a href="./index.html">Privacy Policy</a></span>
+        </div>
+      </div>
+    </article>
+  </main>
 </body>
 </html>
